@@ -1,16 +1,24 @@
-import './App.css';
+import React from 'react';
 
-const BlogList = ({ blogs }) => {
+interface Blog {
+  id: number;
+  title: string;
+  content: string;
+  // Add more fields as needed
+}
+
+interface BlogListProps {
+  blogs: Blog[];
+}
+
+const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
   return (
     <div>
-      {blogs
-        .filter(blog => !blog.deleted) // Exclude deleted blogs
-        .map((blog, index) => (
-          <div key={index} className="blog-item">
-            <h2 className="blog-title">{blog.title}</h2>
-            <p className="blog-date">{blog.date}</p>
-            <p className="blog-content">{blog.content}</p>
-          </div>
+      {blogs.map((blog, index) => (
+        <div key={blog.id}>
+          <h2>{blog.title}</h2>
+          <p>{blog.content}</p>
+        </div>
       ))}
     </div>
   );
