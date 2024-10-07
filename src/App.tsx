@@ -7,6 +7,7 @@ import BlogService from "./service/BlogService";
 
 // Sample blog data
 const sampleBlog = {
+  id: 1,
   title: 'ज्ञान और नम्रता',
   date: '12.05.2025',
   readingTime: '4 min',
@@ -23,6 +24,7 @@ function App() {
         console.log("Fetched blogs:", response.data);
         // Assuming you transform the API data to fit your blog format
         const fetchedBlogs = response.data.map((blogData: any) => ({
+          id: blogData.area,
           title: blogData.area, // Replace with your actual data
           date: blogData.region,
           readingTime: blogData.population,
