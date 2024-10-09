@@ -1,0 +1,88 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000; /* Ensure the header stays on top */
+}
+
+.header .menu-toggle-btn {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+/* App container and main content */
+.app-container {
+  display: flex;
+  margin-top: 60px; /* Space for the fixed header */
+  height: calc(100vh - 60px); /* Full height minus the header */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 60px; /* Right below the header */
+  bottom: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+  z-index: 999; /* Stay on top of main content but below header */
+}
+
+.nav-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-links ul li {
+  margin: 20px 0;
+}
+
+.nav-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-links ul li a:hover {
+  text-decoration: underline;
+}
+
+/* When the sidebar is hidden, shift it off-screen */
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+/* Responsive handling of sidebar open/close state */
+.menu-toggle-btn {
+  display: block;
+}
